@@ -13,6 +13,7 @@
 		01C8500D1EFCF87F00A61A28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C8500B1EFCF87F00A61A28 /* Main.storyboard */; };
 		01C8500F1EFCF87F00A61A28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C8500E1EFCF87F00A61A28 /* Assets.xcassets */; };
 		01C850121EFCF87F00A61A28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C850101EFCF87F00A61A28 /* LaunchScreen.storyboard */; };
+		01C8501C1EFD000200A61A28 /* SZDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8501B1EFD000200A61A28 /* SZDownloadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		01C8500E1EFCF87F00A61A28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01C850111EFCF87F00A61A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01C850131EFCF87F00A61A28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01C8501A1EFD000200A61A28 /* SZDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDownloadOperation.h; sourceTree = "<group>"; };
+		01C8501B1EFD000200A61A28 /* SZDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDownloadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		01C850011EFCF87F00A61A28 /* SZWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				01C850191EFCFFC900A61A28 /* SZWebImage */,
 				01C850051EFCF87F00A61A28 /* AppDelegate.h */,
 				01C850061EFCF87F00A61A28 /* AppDelegate.m */,
 				01C850081EFCF87F00A61A28 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				01C850031EFCF87F00A61A28 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01C850191EFCFFC900A61A28 /* SZWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				01C8501A1EFD000200A61A28 /* SZDownloadOperation.h */,
+				01C8501B1EFD000200A61A28 /* SZDownloadOperation.m */,
+			);
+			path = SZWebImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +166,7 @@
 			files = (
 				01C8500A1EFCF87F00A61A28 /* ViewController.m in Sources */,
 				01C850071EFCF87F00A61A28 /* AppDelegate.m in Sources */,
+				01C8501C1EFD000200A61A28 /* SZDownloadOperation.m in Sources */,
 				01C850041EFCF87F00A61A28 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +326,7 @@
 				01C850181EFCF87F00A61A28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SZDownloadOperation.h"
 
 @interface ViewController ()
 
@@ -16,13 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    NSOperationQueue *queue = [NSOperationQueue new];
+    
+    SZDownloadOperation *op = [SZDownloadOperation new];
+    
+    [queue addOperation:op];
+    
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 
