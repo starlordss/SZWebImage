@@ -18,7 +18,25 @@
  */
 - (void)main
 {
-    NSLog(@"%@ %@",self.urlString,[NSThread currentThread]);
+    NSLog(@"传入 url %@ %@",_urlString, [NSThread currentThread]);
+    
+    NSURL *URL = [NSURL URLWithString:_urlString];
+    
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    
+    UIImage *image = [UIImage imageWithData:data];
+    
+    if (_finishedBlock) {
+        
+        // 回主线程回调代码块:在哪个线程中回调，调用代理， 发送通知，就在那个线程中
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            _finishedBlock(image);
+        }];
+        
+    }
+    
+    
     
 }
 

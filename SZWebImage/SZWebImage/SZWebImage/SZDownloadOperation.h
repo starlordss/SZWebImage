@@ -11,10 +11,10 @@
 
 @interface SZDownloadOperation : NSOperation
 
-/**url**/
+/**接受外界传入的图片地址**/
 @property (nonatomic, copy) NSString *urlString;
 
-/**tack**/
-@property (nonatomic, copy) void(^finishBlock)(UIImage *);
+/**接受外接出入的回调block**/
+@property (nonatomic, copy) void(^finishedBlock)(UIImage *);
 
 @end
