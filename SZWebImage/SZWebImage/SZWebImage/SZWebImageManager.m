@@ -21,6 +21,24 @@
 
 @implementation SZWebImageManager
 
+#pragma mark - 取消上一次操作
+- (void)cancelFormLastURLString:(NSString *)lastURLString
+{
+    SZDownloadOperation *lastOP = [self.OPCache objectForKey:lastURLString];
+    
+    if (lastOP != nil) {
+        
+        // 发送取消消息
+        [lastOP cancel];
+        
+        // 把取消的操作从缓存池移除
+        [_OPCache removeObjectForKey:lastURLString];
+    }
+    
+    
+}
+
+#pragma mark - 实例化
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -32,6 +50,7 @@
     return self;
 }
 
+#pragma mark - 单例
 + (instancetype)sharedManager
 {
     static id instance;
@@ -44,7 +63,7 @@
     return instance;
 }
 
-
+#pragma mark - 下载图片
 - (void)downloadImageWithURLString:(NSString *)URLString completion:(void (^)(UIImage *))completionBlock
 {
     // 在建立下载前，判断要建立的下载操作是否存在，

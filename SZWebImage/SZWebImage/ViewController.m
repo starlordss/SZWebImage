@@ -63,13 +63,8 @@
     // 第一次下载 上一次图片地址为空
     if (![app.icon isEqualToString:_lastURLString] && _lastURLString != nil) {//不一样
         
-        // 获取上一个图片的下载操作
-        SZDownloadOperation *lastOP = [self.OPCache objectForKey:_lastURLString];
-        // 发出取消消息
-        [lastOP cancel];
-        
-         // 把取消的操作从操作缓存移除
-        [self.OPCache removeObjectForKey:_lastURLString];
+       
+        [[SZWebImageManager sharedManager] cancelFormLastURLString:_lastURLString];
         
     }
     

@@ -17,8 +17,15 @@
 /**
  * 下载图片
  * @param URLString 图片地址
- * @param completionBlock下载完的回调
+ * @param completionBlock 载完的回调
  */
 - (void)downloadImageWithURLString:(NSString *)URLString completion:(void(^)(UIImage *image)) completionBlock;
+
+
+/**
+ * 取消上次操作的主方法
+ * @param lastURLString 上次下载图片地址
+ */
+- (void)cancelFormLastURLString:(NSString *)lastURLString;
 
 @end
