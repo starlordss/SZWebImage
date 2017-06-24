@@ -23,35 +23,38 @@
 
 /**
  * 操作的入口方法：队列调用操作执行先经过start方法过滤，然后进入该方法
- * 默认在子线程异步执行的
+ * 默认在"子线程" "异步"执行的
  * 队列调度操作执行后，才会执行main方法
  */
 - (void)main
 {
-//    NSLog(@"传入 url %@ %@",_URLString, [NSThread currentThread]);
-    NSLog(@"传入 %@", [NSThread currentThread]);
+    NSLog(@"传入 \"%@\"",_URLString);
     
     NSURL *URL = [NSURL URLWithString:self.URLString];
-    
     NSData *data = [NSData dataWithContentsOfURL:URL];
-    
     UIImage *image = [UIImage imageWithData:data];
+    
+    // 模拟网络延迟
+    [NSThread sleepForTimeInterval:1.0f];
     
     NSAssert(self.finishedBlock != nil, @"图片下载完成的回调不能为空");
     
-    // 回主线程回调代码块:在哪个线程中回调，调用代理， 发送通知，就在那个线程中
+    // 回主线程回调代码块:在哪个线程中回调\调用代理\发送通知，就在那个线程中
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         
-        _finishedBlock(image);
+        _finishedBlock(image);//主线程
     }];
 }
 
+#pragma mark - 接受外部的图片
 + (instancetype)downloadImageWithURLString:(NSString *)URLString finishedBlock:(void (^)(UIImage *img))finishedBlock
 {
     SZDownloadOperation *op = [SZDownloadOperation new];
    
+    // 记录图片地址赋值给属性
     op.URLString = URLString;
     
+    // 记录回调的代码属性赋值给属性
     op.finishedBlock = finishedBlock;
     
     return op;
