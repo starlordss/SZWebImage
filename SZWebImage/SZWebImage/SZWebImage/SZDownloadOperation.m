@@ -29,7 +29,7 @@
 - (void)main
 {
     
-    NSLog(@"传入:\"%@\"",[_URLString lastPathComponent]);
+    NSLog(@" + 传入:\"%@\"",[_URLString lastPathComponent]);
     
     NSURL *URL = [NSURL URLWithString:self.URLString];
     NSData *data = [NSData dataWithContentsOfURL:URL];
@@ -41,7 +41,7 @@
     // 在操作执行的过程中拦截操作是否被取消了
     if (self.isCancelled == YES) { // 取消
         
-        NSLog(@"取消:\"%@\"",[_URLString lastPathComponent]);
+        NSLog(@" - 取消:\"%@\"",[_URLString lastPathComponent]);
         return;
     }
     
@@ -51,7 +51,7 @@
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         
     
-        NSLog(@"完成:\"%@\"",[_URLString lastPathComponent]);
+        NSLog(@" ^ 完成:\"%@\"",[_URLString lastPathComponent]);
         _finishedBlock(image);//主线程
     }];
 }
