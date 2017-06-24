@@ -28,7 +28,8 @@
  */
 - (void)main
 {
-    NSLog(@"传入 \"%@\"",_URLString);
+    
+    NSLog(@"传入:\"%@\"",[_URLString lastPathComponent]);
     
     NSURL *URL = [NSURL URLWithString:self.URLString];
     NSData *data = [NSData dataWithContentsOfURL:URL];
@@ -37,11 +38,20 @@
     // 模拟网络延迟
     [NSThread sleepForTimeInterval:1.0f];
     
+    // 在操作执行的过程中拦截操作是否被取消了
+    if (self.isCancelled == YES) { // 取消
+        
+        NSLog(@"取消:\"%@\"",[_URLString lastPathComponent]);
+        return;
+    }
+    
     NSAssert(self.finishedBlock != nil, @"图片下载完成的回调不能为空");
     
     // 回主线程回调代码块:在哪个线程中回调\调用代理\发送通知，就在那个线程中
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         
+    
+        NSLog(@"完成:\"%@\"",[_URLString lastPathComponent]);
         _finishedBlock(image);//主线程
     }];
 }
