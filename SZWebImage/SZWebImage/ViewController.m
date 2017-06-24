@@ -7,10 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "SZDownloadOperation.h"
 #import "AppModel.h"
 #import "AFNetworking.h"
 #import "YYModel.h"
+#import "SZWebImageManager.h"
 
 @interface ViewController ()
 
@@ -76,27 +76,17 @@
     // 记录上一次图片链接
     _lastURLString = app.icon;
     
-    SZDownloadOperation *op = [SZDownloadOperation downloadImageWithURLString:app.icon finishedBlock:^(UIImage *image) {
+    // 单例管理下载操作：取消操作失效
+    [[SZWebImageManager sharedManager] downloadImageWithURLString:app.icon completion:^(UIImage *image) {
         
         _imageView.image = image;
         
-        // 图片下载结束，移除对应的操作
-        if (app.icon != nil) {
-            
-            [self.OPCache removeObjectForKey:app.icon];
-        }
     }];
     
-    if (app.icon != nil) {
-        [self.OPCache setObject:op forKey:app.icon];
-    }
-    // 添加操作到缓存池
     
-    // 添加到操作缓存
-    [self.queue addOperation:op];
 }
 
-#pragma mark - 加载数据
+#pragma mark - 加载网络Json数据
 - (void)loadData
 {
     NSString *urlStr = @"https://raw.githubusercontent.com/zhangxiaochuZXC/SHHM06/master/apps.json";

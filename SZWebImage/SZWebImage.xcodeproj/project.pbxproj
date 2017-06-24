@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0167D54C1EFE894E00EFE9FA /* SZWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167D54B1EFE894E00EFE9FA /* SZWebImageManager.m */; };
 		019CB1D91EFE4CC4001CA496 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 019CB1A51EFE4CC4001CA496 /* AFHTTPSessionManager.m */; };
 		019CB1DA1EFE4CC4001CA496 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 019CB1A81EFE4CC4001CA496 /* AFNetworkReachabilityManager.m */; };
 		019CB1DB1EFE4CC4001CA496 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 019CB1AA1EFE4CC4001CA496 /* AFSecurityPolicy.m */; };
@@ -42,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0167D54A1EFE894E00EFE9FA /* SZWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZWebImageManager.h; sourceTree = "<group>"; };
+		0167D54B1EFE894E00EFE9FA /* SZWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZWebImageManager.m; sourceTree = "<group>"; };
 		019CB1A41EFE4CC4001CA496 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		019CB1A51EFE4CC4001CA496 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		019CB1A61EFE4CC4001CA496 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 			children = (
 				01C8501A1EFD000200A61A28 /* SZDownloadOperation.h */,
 				01C8501B1EFD000200A61A28 /* SZDownloadOperation.m */,
+				0167D54A1EFE894E00EFE9FA /* SZWebImageManager.h */,
+				0167D54B1EFE894E00EFE9FA /* SZWebImageManager.m */,
 			);
 			path = SZWebImage;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 		01C84FF71EFCF87F00A61A28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SZ;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Zahi;
 				TargetAttributes = {
@@ -348,6 +354,7 @@
 				019CB1E91EFE4CC4001CA496 /* UIImage+GIF.m in Sources */,
 				019CB1DE1EFE4CC4001CA496 /* AFURLSessionManager.m in Sources */,
 				01C8501C1EFD000200A61A28 /* SZDownloadOperation.m in Sources */,
+				0167D54C1EFE894E00EFE9FA /* SZWebImageManager.m in Sources */,
 				019CB1F01EFE4CC4001CA496 /* YYClassInfo.m in Sources */,
 				019CB1DA1EFE4CC4001CA496 /* AFNetworkReachabilityManager.m in Sources */,
 				019CB1EC1EFE4CC4001CA496 /* UIImageView+HighlightedWebCache.m in Sources */,
