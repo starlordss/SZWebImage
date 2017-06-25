@@ -14,7 +14,7 @@
 {
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
     
-    NSString *fileName = [self lastPathComponent];
+    NSString *fileName = [self md5String];
     
     NSString *path = [cachePath stringByAppendingPathComponent:fileName];
     

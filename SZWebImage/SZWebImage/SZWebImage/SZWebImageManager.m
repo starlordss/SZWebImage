@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSOperationQueue *queue;
 
 /**内存缓存**/
-@property (nonatomic, strong) NSMutableDictionary *memoeyCache;
+@property (nonatomic, strong) NSCache *memoeyCache;
 
 @end
 
@@ -33,9 +33,20 @@
         // 实例缓存池
         self.OPCache = [NSMutableDictionary dictionary];
         // 实例内存缓存
-        self.memoeyCache = [NSMutableDictionary dictionary];
+        self.memoeyCache = [NSCache new];
+        
+        // 注册内存警告通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearMemory) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     return self;
+}
+
+- (void)clearMemory
+{
+    [self.memoeyCache removeAllObjects];
+    
+//    [_OPCache removeAllObjects];
+//    [_queue cancelAllOperations];
 }
 
 + (instancetype)sharedManager
@@ -136,7 +147,7 @@
         
         NSLog(@"从沙盒获取: %@",[URLString lastPathComponent]);
         // 在内存缓存里存取一份
-        [self.memoeyCache setValue:sandboxImg forKey:URLString];
+        [self.memoeyCache setObject:sandboxImg forKey:URLString];
         return YES;
     }
     return NO;
