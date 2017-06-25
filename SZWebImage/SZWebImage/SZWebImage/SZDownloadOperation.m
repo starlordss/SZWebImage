@@ -35,8 +35,15 @@
     NSData *data = [NSData dataWithContentsOfURL:URL];
     UIImage *image = [UIImage imageWithData:data];
     
+    // 沙盒缓存
+    if (image != nil) {
+        // 下入沙盒
+        [data writeToFile:[self.URLString sandboxPath] atomically:YES];
+    }
+    
     // 模拟网络延迟
     [NSThread sleepForTimeInterval:1.0f];
+    
     
     // 在操作执行的过程中拦截操作是否被取消了
     if (self.isCancelled == YES) { // 取消

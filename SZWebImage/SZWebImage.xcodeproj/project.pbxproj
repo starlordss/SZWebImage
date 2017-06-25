@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0167D54C1EFE894E00EFE9FA /* SZWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167D54B1EFE894E00EFE9FA /* SZWebImageManager.m */; };
+		0167D5591EFFCFB200EFE9FA /* NSString+SandboxPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167D5581EFFCFB200EFE9FA /* NSString+SandboxPath.m */; };
 		019CB1D91EFE4CC4001CA496 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 019CB1A51EFE4CC4001CA496 /* AFHTTPSessionManager.m */; };
 		019CB1DA1EFE4CC4001CA496 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 019CB1A81EFE4CC4001CA496 /* AFNetworkReachabilityManager.m */; };
 		019CB1DB1EFE4CC4001CA496 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 019CB1AA1EFE4CC4001CA496 /* AFSecurityPolicy.m */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		0167D54A1EFE894E00EFE9FA /* SZWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZWebImageManager.h; sourceTree = "<group>"; };
 		0167D54B1EFE894E00EFE9FA /* SZWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZWebImageManager.m; sourceTree = "<group>"; };
+		0167D5571EFFCFB200EFE9FA /* NSString+SandboxPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SandboxPath.h"; sourceTree = "<group>"; };
+		0167D5581EFFCFB200EFE9FA /* NSString+SandboxPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SandboxPath.m"; sourceTree = "<group>"; };
 		019CB1A41EFE4CC4001CA496 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		019CB1A51EFE4CC4001CA496 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		019CB1A61EFE4CC4001CA496 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 		01C850191EFCFFC900A61A28 /* SZWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				0167D5571EFFCFB200EFE9FA /* NSString+SandboxPath.h */,
+				0167D5581EFFCFB200EFE9FA /* NSString+SandboxPath.m */,
 				01C8501A1EFD000200A61A28 /* SZDownloadOperation.h */,
 				01C8501B1EFD000200A61A28 /* SZDownloadOperation.m */,
 				0167D54A1EFE894E00EFE9FA /* SZWebImageManager.h */,
@@ -349,6 +354,7 @@
 				019CB1EB1EFE4CC4001CA496 /* UIImage+WebP.m in Sources */,
 				019CB1F31EFE4D00001CA496 /* AppModel.m in Sources */,
 				019CB1E51EFE4CC4001CA496 /* SDWebImageDownloaderOperation.m in Sources */,
+				0167D5591EFFCFB200EFE9FA /* NSString+SandboxPath.m in Sources */,
 				019CB1EE1EFE4CC4001CA496 /* UIView+WebCacheOperation.m in Sources */,
 				019CB1E41EFE4CC4001CA496 /* SDWebImageDownloader.m in Sources */,
 				019CB1E91EFE4CC4001CA496 /* UIImage+GIF.m in Sources */,

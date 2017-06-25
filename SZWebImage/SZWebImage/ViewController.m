@@ -58,18 +58,17 @@
 
     // 获取模型
     AppModel *app = self.arrData[random];
-
+    
     // 判断本次链接和上次链接是否一样 不一样就把之前操作取消掉
     // 第一次下载 上一次图片地址为空
-    if (![app.icon isEqualToString:_lastURLString] && _lastURLString != nil) {//不一样
+    if (self.lastURLString != nil && ![app.icon isEqualToString:self.lastURLString]) {//不一样
         
-       
-        [[SZWebImageManager sharedManager] cancelFormLastURLString:_lastURLString];
-        
+        [[SZWebImageManager sharedManager] cancelFormLastURLString:self.lastURLString];
     }
     
     // 记录上一次图片链接
-    _lastURLString = app.icon;
+    self.lastURLString = app.icon;
+
     
     // 单例管理下载操作：取消操作失效
     [[SZWebImageManager sharedManager] downloadImageWithURLString:app.icon completion:^(UIImage *image) {
@@ -83,7 +82,7 @@
 
 #pragma mark - 加载网络Json数据
 - (void)loadData
-{
+{ 
     NSString *urlStr = @"https://raw.githubusercontent.com/zhangxiaochuZXC/SHHM06/master/apps.json";
     
     [[AFHTTPSessionManager manager] GET:urlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
