@@ -10,7 +10,7 @@
 #import "AppModel.h"
 #import "AFNetworking.h"
 #import "YYModel.h"
-#import "SZWebImageManager.h"
+#import "UIImageView+SZWebCache.h"
 
 @interface ViewController ()
 
@@ -53,30 +53,22 @@
  */
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+  
+    
     // 获取随机索引
     int random = arc4random_uniform((int32_t)self.arrData.count);
 
     // 获取模型
     AppModel *app = self.arrData[random];
     
-    // 判断本次链接和上次链接是否一样 不一样就把之前操作取消掉
-    // 第一次下载 上一次图片地址为空
-    if (self.lastURLString != nil && ![app.icon isEqualToString:self.lastURLString]) {//不一样
-        
-        [[SZWebImageManager sharedManager] cancelFormLastURLString:self.lastURLString];
+    if (app == nil) {
+        return;
     }
     
-    // 记录上一次图片链接
-    self.lastURLString = app.icon;
+    
+    [self.imageView sz_setImageWithURLString:app.icon];
 
-    
-    // 单例管理下载操作：取消操作失效
-    [[SZWebImageManager sharedManager] downloadImageWithURLString:app.icon completion:^(UIImage *image) {
-        
-        _imageView.image = image;
-        
-    }];
-    
+
     
 }
 
