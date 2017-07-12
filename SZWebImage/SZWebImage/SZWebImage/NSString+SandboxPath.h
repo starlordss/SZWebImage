@@ -11,6 +11,7 @@
 
 @interface NSString (SandboxPath)
 
+/// 获取沙盒中Cache路径
 - (NSString *)sandboxPath;
 
 @end

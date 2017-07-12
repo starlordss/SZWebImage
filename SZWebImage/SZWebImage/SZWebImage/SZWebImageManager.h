@@ -16,7 +16,7 @@
 
 /**
  * 下载图片
- * @param URLString 图片地址
+ * @param URLString       图片地址
  * @param completionBlock 载完的回调
  */
 - (void)downloadImageWithURLString:(NSString *)URLString completion:(void(^)(UIImage *image)) completionBlock;
